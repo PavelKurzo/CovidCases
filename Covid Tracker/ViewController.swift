@@ -8,6 +8,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
 
+    
     static let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true
@@ -56,7 +57,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
     }
 
-    
     private func fetchData() {
         APICaller.shared.getCovidData(for: scope) { [weak self] result in
             switch result {
@@ -65,7 +65,6 @@ class ViewController: UIViewController, UITableViewDataSource {
             case .failure(let error):
                 print(error)
             }
-            
         }
     }
 

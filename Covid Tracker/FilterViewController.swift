@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     public var completion: ((State) -> Void)?

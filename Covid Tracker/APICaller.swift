@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+
 class APICaller {
     static let shared = APICaller()
     
@@ -32,7 +33,6 @@ class APICaller {
             urlString = "https://api.covidtracking.com/v2/us/daily.json"
         case .state(let state):
             urlString = "https://api.covidtracking.com/v2/states/\(state.state_code.lowercased())/daily.json"
-
         }
         
         guard let url = URL(string: urlString) else { return }
@@ -47,7 +47,6 @@ class APICaller {
                    guard let value = $0.cases?.total.value, let date = DateFormatter.dayFormatter.date(from: $0.date) else {
                        return nil
                    }
-                    
                    return DayData(
                     date: date,
                     count: value
